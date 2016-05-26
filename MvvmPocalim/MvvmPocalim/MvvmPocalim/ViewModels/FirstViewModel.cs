@@ -23,7 +23,11 @@ namespace MvvmPocalim.ViewModels
 
         public override void Start()
         {
-            _marker = new Markers(48.831165, 2.254237, "Sogeti");
+            _marker = new Markers()
+            {
+                Coord = new GPSCoord() { Lat = 48.831165, Lng = 2.254237 },
+                Nom = "Sogeti"
+            };
             base.Start();
         }
 

@@ -15,6 +15,9 @@ using MvvmCross.Droid.Support.V7.Fragging;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using MvvmCross.Droid.Support.V7.Fragging.Fragments;
+using MvvmCross.Binding.BindingContext;
+using MvvmCross.Platform.Converters;
+using System.Globalization;
 
 namespace MvvmPocalim.Droid.View
 {
@@ -22,6 +25,7 @@ namespace MvvmPocalim.Droid.View
     public class Map : MvxActivity,IOnMapReadyCallback
     {
         private GoogleMap _gMap;
+        private Marker _marker1;
 
 
         public new FirstViewModel ViewModel
@@ -45,10 +49,28 @@ namespace MvvmPocalim.Droid.View
             _gMap = googleMap;
 
             var option1 = new MarkerOptions();
-            option1.SetPosition(new LatLng(ViewModel.Marker.Lat, ViewModel.Marker.Lng));
+            option1.SetPosition(new LatLng(ViewModel.Marker.Coord.Lat, ViewModel.Marker.Coord.Lng));
             option1.SetTitle(ViewModel.Marker.Nom);
 
-            _gMap.AddMarker(option1);
+            _marker1 = _gMap.AddMarker(option1);
+            
+            var set = this.CreateBindingSet<Map, FirstViewModel>();
+            set.Bind(_marker1)
+                .For(m => m.Position)
+                .To(vm => vm.Marker.Coord).WithConversion(new CoordToLatLngValueConverter(),null);
+            set.Apply();
+        }
+
+        public class CoordToLatLngValueConverter : MvxValueConverter<GPSCoord, LatLng>
+        {
+            protected override LatLng Convert(GPSCoord value, Type targetType, object parameter, CultureInfo culture)
+            {
+                return new LatLng(value.Lat, value.Lng);
+            }
+            protected override GPSCoord ConvertBack(LatLng value, Type targetType, object parameter, CultureInfo culture)
+            {
+                return new GPSCoord() { Lat = value.Latitude, Lng = value.Longitude };
+            }
         }
     }
 

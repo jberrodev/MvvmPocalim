@@ -9,29 +9,20 @@ namespace MvvmPocalim.ViewModels
 {
    public class Markers : MvxViewModel
     {
-        private double _lat;
-        private double _lng;
+        private GPSCoord _coord;
         private String _nom;
 
-        public Markers(double lattitude, double longitude, String nom)
+        public Markers()
         {
-            _lat = lattitude;
-            _lng = longitude;
-            _nom = nom;
+            _coord = Coord;
+            _nom = Nom;
         }
 
-        public double Lat
+        public GPSCoord Coord
         {
-            get { return _lat; }
-            set { _lat = value; }
+            get { return _coord; }
+            set { _coord = value; }
         }
-
-        public double Lng
-        {
-            get { return _lng; }
-            set { _lng = value; }
-        }
-
         public String Nom
         {
             get { return _nom; }

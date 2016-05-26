@@ -36,6 +36,7 @@
     <Compile Include="Services\Calculation.cs" />
     <Compile Include="Services\ICalculation.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
+    <Compile Include="ViewModels\GPSCoord.cs" />
     <Compile Include="ViewModels\Markers.cs" />
   </ItemGroup>
   <ItemGroup>
