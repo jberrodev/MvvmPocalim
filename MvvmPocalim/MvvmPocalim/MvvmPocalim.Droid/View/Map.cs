@@ -25,7 +25,7 @@ namespace MvvmPocalim.Droid.View
     public class Map : MvxActivity,IOnMapReadyCallback
     {
         private GoogleMap _gMap;
-        private Marker _marker1;
+        private Marker _marker;
 
         //Specification du ViewModel
         public new FirstViewModel ViewModel
@@ -48,17 +48,27 @@ namespace MvvmPocalim.Droid.View
         {
             _gMap = googleMap;
 
-            var option1 = new MarkerOptions();
-            option1.SetPosition(new LatLng(ViewModel.Marker.Coord.Lat, ViewModel.Marker.Coord.Lng));
-            option1.SetTitle(ViewModel.Marker.Nom);
+            foreach(Markers marker in ViewModel.MarkerList)
+            {
+                //ajout des markers à la map
+                var option = new MarkerOptions();
+                option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));
+                option.SetTitle(marker.Nom);
+                _marker = _gMap.AddMarker(option);
 
-            _marker1 = _gMap.AddMarker(option1);
-            
+                
+            }
+            /*
+            //binding du marker au ModelView
             var set = this.CreateBindingSet<Map, FirstViewModel>();
-            set.Bind(_marker1)
+            set.Bind(_marker)
                 .For(m => m.Position)
-                .To(vm => vm.Marker.Coord).WithConversion(new CoordToLatLngValueConverter(),null);
+                .To(vm => vm.Marker.Coord).WithConversion(new CoordToLatLngValueConverter(), null);
             set.Apply();
+            */
+
+
+
         }
 
        

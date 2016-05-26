@@ -14,7 +14,6 @@ namespace MvvmPocalim
     {
         public App()
         {
-            Mvx.RegisterType<ICalculation, Calculation>();
             Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<FirstViewModel>());
         }
     }
