@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvvmCross.Core.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MvvmPocalim.ViewModels
 {
-    public class GPSCoord
+    public class GPSCoord : MvxViewModel
     {
         private double _lat;
         private double _lng;
@@ -20,13 +21,13 @@ namespace MvvmPocalim.ViewModels
         public double Lat
         {
             get { return _lat; }
-            set { _lat = value; }
+            set { _lat = value; RaisePropertyChanged(() => Lat); }
         }
 
         public double Lng
         {
             get { return _lng; }
-            set { _lng = value; }
+            set { _lng = value; RaisePropertyChanged(() => Lng); }
         }
     }
 }

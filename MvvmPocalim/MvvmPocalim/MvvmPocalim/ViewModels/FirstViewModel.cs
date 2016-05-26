@@ -31,6 +31,21 @@ namespace MvvmPocalim.ViewModels
             base.Start();
         }
 
+        public IMvxCommand MoveCommand
+        {
+            get
+            {
+                return new MvxCommand(() =>
+                {
+                    Marker.Coord = new GPSCoord()
+                    {
+                        Lat = Marker.Coord.Lat + 0.1,
+                        Lng = Marker.Coord.Lng
+                    };
+                });
+            }
+        }
+
 
     }
 }

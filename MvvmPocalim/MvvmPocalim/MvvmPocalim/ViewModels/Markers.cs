@@ -21,12 +21,12 @@ namespace MvvmPocalim.ViewModels
         public GPSCoord Coord
         {
             get { return _coord; }
-            set { _coord = value; }
+            set { _coord = value; RaisePropertyChanged(() => Coord); }
         }
         public String Nom
         {
             get { return _nom; }
-            set { _nom = value; }
+            set { _nom = value; RaisePropertyChanged(() => Nom); }
         }
     }
 }

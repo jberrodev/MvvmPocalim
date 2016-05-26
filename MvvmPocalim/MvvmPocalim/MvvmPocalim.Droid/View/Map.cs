@@ -27,13 +27,13 @@ namespace MvvmPocalim.Droid.View
         private GoogleMap _gMap;
         private Marker _marker1;
 
-
+        //Specification du ViewModel
         public new FirstViewModel ViewModel
         {
             get { return (FirstViewModel)base.ViewModel; }
             set { base.ViewModel = value; }
         }
-
+        //Une fois le ViewModel chargé on genere la vue
         protected override void OnViewModelSet()
         {
             base.OnViewModelSet();
@@ -43,7 +43,7 @@ namespace MvvmPocalim.Droid.View
                 FragmentManager.FindFragmentById<MapFragment>(Resource.Id.map).GetMapAsync(this);
 
         }
-
+        
         public void OnMapReady(GoogleMap googleMap)
         {
             _gMap = googleMap;
@@ -61,17 +61,7 @@ namespace MvvmPocalim.Droid.View
             set.Apply();
         }
 
-        public class CoordToLatLngValueConverter : MvxValueConverter<GPSCoord, LatLng>
-        {
-            protected override LatLng Convert(GPSCoord value, Type targetType, object parameter, CultureInfo culture)
-            {
-                return new LatLng(value.Lat, value.Lng);
-            }
-            protected override GPSCoord ConvertBack(LatLng value, Type targetType, object parameter, CultureInfo culture)
-            {
-                return new GPSCoord() { Lat = value.Latitude, Lng = value.Longitude };
-            }
-        }
+       
     }
 
 }
