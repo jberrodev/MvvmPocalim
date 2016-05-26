@@ -1,7 +1,7 @@
 ﻿using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmPocalim.Services;
-using MvvmPocalim.ViewModel;
+using MvvmPocalim.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace MvvmPocalim
         public App()
         {
             Mvx.RegisterType<ICalculation, Calculation>();
-            Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<TipViewModel>());
+            Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<FirstViewModel>());
         }
     }
 
