@@ -12,6 +12,7 @@ namespace MvvmPocalim.ViewModels
     {
         private GPSCoord _coord;
         private String _nom;
+        private String _type;
         private String _adresse;
         private Decimal _note;
         private String _inspection;
@@ -34,6 +35,11 @@ namespace MvvmPocalim.ViewModels
         {
             get { return _nom; }
             set { _nom = value; RaisePropertyChanged(() => Nom); }
+        }
+        public String Type
+        {
+            get { return _type; }
+            set { _type = value; RaisePropertyChanged(() => Type); }
         }
         public String Adresse
         {

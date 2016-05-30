@@ -47,18 +47,14 @@ namespace MvvmPocalim.Droid.View
         public void OnMapReady(GoogleMap googleMap)
         {
             _gMap = googleMap;
-
+          
+            //Position de départ de la camera
+            moveCameraStart();
+            
             //parcours de la liste de markers du ViewModel
             //et ajout des markers à la map
-
-            foreach (Markers marker in ViewModel.MarkerList)
-            {
-                var option = new MarkerOptions();
-                option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));
-                option.SetTitle(marker.Nom);
-                _marker = _gMap.AddMarker(option);
-                
-            }
+            addMarkers();
+                         
             /*
             //binding du marker au ModelView
             var set = this.CreateBindingSet<Map, FirstViewModel>();
@@ -67,11 +63,45 @@ namespace MvvmPocalim.Droid.View
                 .To(vm => vm.Marker.Coord).WithConversion(new CoordToLatLngValueConverter(), null);
             set.Apply();
             */
-
-
-
         }
 
+        public void moveCameraStart()
+        {
+                LatLng location = new LatLng(48.828808,2.261146);
+                CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
+                builder.Target(location);
+                builder.Zoom(14);
+                CameraPosition cameraPosition = builder.Build();
+                CameraUpdate cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
+
+            if (_gMap != null)
+            {
+                _gMap.MoveCamera(cameraUpdate);
+            }
+           
+        }
+        //parcours de la liste de markers du ViewModel
+        //et ajout des markers à la map
+        public void addMarkers()
+        {
+                foreach (Markers marker in ViewModel.MarkerList)
+                {
+                    var option = new MarkerOptions();
+                    option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));
+                    option.SetTitle(marker.Nom);
+                    if (marker.Type.Contains("Restaurant"))
+                        option.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRose));
+                    if (marker.Type.Contains("Proximité"))
+                        option.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueYellow));
+                    if (marker.Type.Contains("Supermarché"))
+                        option.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueOrange));
+                    if (marker.Type.Contains("Transformation"))
+                        option.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
+
+                    if (_gMap != null)
+                        _marker = _gMap.AddMarker(option);
+                }
+        }
        
     }
 

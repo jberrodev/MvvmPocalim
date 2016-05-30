@@ -1876,9 +1876,6 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f0b0068
 			public const int info = 2131427432;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int jad = 2131427435;
-			
 			// aapt resource value: 0x7f0b0017
 			public const int light = 2131427351;
 			

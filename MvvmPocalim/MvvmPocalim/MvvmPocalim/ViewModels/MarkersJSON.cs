@@ -18,6 +18,7 @@ namespace MvvmPocalim.ViewModels
         public string nom { get; set; }
         public string lattitude { get; set; }
         public string longitude { get; set; }
+        public string type { get; set; }
         public string adresse { get; set; }
         public string note { get; set; }
         public string inspection { get; set; }
