@@ -48,14 +48,15 @@ namespace MvvmPocalim.Droid.View
         {
             _gMap = googleMap;
 
-            foreach(Markers marker in ViewModel.MarkerList)
+            //parcours de la liste de markers du ViewModel
+            //et ajout des markers à la map
+
+            foreach (Markers marker in ViewModel.MarkerList)
             {
-                //ajout des markers à la map
                 var option = new MarkerOptions();
                 option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));
                 option.SetTitle(marker.Nom);
                 _marker = _gMap.AddMarker(option);
-
                 
             }
             /*

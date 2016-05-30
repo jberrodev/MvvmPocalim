@@ -1,6 +1,5 @@
 ﻿using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
-using MvvmPocalim.Services;
 using MvvmPocalim.ViewModels;
 using System;
 using System.Collections.Generic;
