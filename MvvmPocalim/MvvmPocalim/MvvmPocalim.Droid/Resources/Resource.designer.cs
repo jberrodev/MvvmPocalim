@@ -1713,8 +1713,14 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f02006f
 			public const int Icon = 2130837615;
 			
+			// aapt resource value: 0x7f020072
+			public const int notification_template_icon_bg = 2130837618;
+			
 			// aapt resource value: 0x7f020070
-			public const int notification_template_icon_bg = 2130837616;
+			public const int splash_logo = 2130837616;
+			
+			// aapt resource value: 0x7f020071
+			public const int splash_screen = 2130837617;
 			
 			static Drawable()
 			{
@@ -2836,6 +2842,9 @@ namespace MvvmPocalim.Droid
 			
 			// aapt resource value: 0x7f0a0135
 			public const int MyTheme_NoTitle = 2131362101;
+			
+			// aapt resource value: 0x7f0a0136
+			public const int MyTheme_Splash = 2131362102;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int Platform_AppCompat = 2131361808;

@@ -21,7 +21,7 @@ using System.Globalization;
 
 namespace MvvmPocalim.Droid.View
 {
-    [Activity(Label = "Map", MainLauncher = true, Theme ="@style/MyTheme.NoTitle")]
+    [Activity(Label = "Map", Theme ="@style/MyTheme.NoTitle")]
     public class Map : MvxActivity,IOnMapReadyCallback
     {
         private GoogleMap _gMap;
@@ -47,14 +47,17 @@ namespace MvvmPocalim.Droid.View
         public void OnMapReady(GoogleMap googleMap)
         {
             _gMap = googleMap;
-          
+            
+            //Listener sur click d'un marker
+            _gMap.MarkerClick += MapOnMarkerClick;
+
             //Position de départ de la camera
             moveCameraStart();
             
             //parcours de la liste de markers du ViewModel
             //et ajout des markers à la map
             addMarkers();
-                         
+             
             /*
             //binding du marker au ModelView
             var set = this.CreateBindingSet<Map, FirstViewModel>();
@@ -65,6 +68,17 @@ namespace MvvmPocalim.Droid.View
             */
         }
 
+
+        private void MapOnMarkerClick(object sender, GoogleMap.MarkerClickEventArgs markerClickEventArgs)
+        {
+            markerClickEventArgs.Handled = true;
+            Marker marker = markerClickEventArgs.Marker;
+
+            Toast.MakeText(this, String.Format("You clicked on {0}", marker.Title), ToastLength.Short).Show();
+            
+        }
+
+        //Position de départ de la camera
         public void moveCameraStart()
         {
                 LatLng location = new LatLng(48.828808,2.261146);
