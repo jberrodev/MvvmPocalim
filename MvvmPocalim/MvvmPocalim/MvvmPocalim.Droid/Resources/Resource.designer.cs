@@ -1713,14 +1713,26 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f02006f
 			public const int Icon = 2130837615;
 			
-			// aapt resource value: 0x7f020072
-			public const int notification_template_icon_bg = 2130837618;
+			// aapt resource value: 0x7f020076
+			public const int notification_template_icon_bg = 2130837622;
 			
 			// aapt resource value: 0x7f020070
-			public const int splash_logo = 2130837616;
+			public const int pin_proximite = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int splash_screen = 2130837617;
+			public const int pin_restaurant = 2130837617;
+			
+			// aapt resource value: 0x7f020072
+			public const int pin_supermarche = 2130837618;
+			
+			// aapt resource value: 0x7f020073
+			public const int pin_transformation = 2130837619;
+			
+			// aapt resource value: 0x7f020074
+			public const int splash_logo = 2130837620;
+			
+			// aapt resource value: 0x7f020075
+			public const int splash_screen = 2130837621;
 			
 			static Drawable()
 			{
@@ -1920,6 +1932,9 @@ namespace MvvmPocalim.Droid
 			
 			// aapt resource value: 0x7f0b003a
 			public const int parentPanel = 2131427386;
+			
+			// aapt resource value: 0x7f0b006b
+			public const int popup_element = 2131427435;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int progress_circular = 2131427333;
@@ -2213,6 +2228,9 @@ namespace MvvmPocalim.Droid
 			
 			// aapt resource value: 0x7f030025
 			public const int View_Map = 2130903077;
+			
+			// aapt resource value: 0x7f030026
+			public const int View_Popup = 2130903078;
 			
 			static Layout()
 			{
@@ -2844,7 +2862,10 @@ namespace MvvmPocalim.Droid
 			public const int MyTheme_NoTitle = 2131362101;
 			
 			// aapt resource value: 0x7f0a0136
-			public const int MyTheme_Splash = 2131362102;
+			public const int MyTheme_Popup = 2131362102;
+			
+			// aapt resource value: 0x7f0a0137
+			public const int MyTheme_Splash = 2131362103;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int Platform_AppCompat = 2131361808;

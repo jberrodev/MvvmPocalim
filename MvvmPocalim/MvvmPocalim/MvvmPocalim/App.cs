@@ -13,7 +13,7 @@ namespace MvvmPocalim
     {
         public App()
         {
-            Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<FirstViewModel>());
+            Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<MarkerListViewModel>());
         }
     }
 

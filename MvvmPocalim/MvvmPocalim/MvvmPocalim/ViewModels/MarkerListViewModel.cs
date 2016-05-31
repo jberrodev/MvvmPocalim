@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace MvvmPocalim.ViewModels
 {
-    public class FirstViewModel : MvxViewModel
+    public class MarkerListViewModel : MvxViewModel
     {
         private List<Markers> _markerslist;
 

@@ -120,7 +120,8 @@
     <Compile Include="Setup.cs" />
     <Compile Include="Splash.cs" />
     <Compile Include="View\CoordToLatLngValueConverter.cs" />
-    <Compile Include="View\Map.cs" />
+    <Compile Include="View\MapView.cs" />
+    <Compile Include="View\PopupView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -130,6 +131,7 @@
     <AndroidResource Include="Resources\values\styles.xml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\View_Popup.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\View_Map.axml" />
@@ -150,12 +152,23 @@
       <Version>23.1.1.1</Version>
     </XamarinComponentReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\pin_transformation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\pin_restaurant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\pin_supermarche.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\pin_proximite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

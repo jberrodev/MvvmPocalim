@@ -33,7 +33,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\FirstViewModel.cs" />
+    <Compile Include="ViewModels\MarkerListViewModel.cs" />
     <Compile Include="ViewModels\GPSCoord.cs" />
     <Compile Include="ViewModels\Markers.cs" />
     <Compile Include="ViewModels\MarkersJSON.cs" />

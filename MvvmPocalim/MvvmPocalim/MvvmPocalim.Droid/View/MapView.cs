@@ -21,16 +21,18 @@ using System.Globalization;
 
 namespace MvvmPocalim.Droid.View
 {
+    /**Classe de création de la map
+     * et ajout des markers**/
     [Activity(Label = "Map", Theme ="@style/MyTheme.NoTitle")]
-    public class Map : MvxActivity,IOnMapReadyCallback
+    public class MapView : MvxActivity,IOnMapReadyCallback
     {
         private GoogleMap _gMap;
         private Marker _marker;
 
         //Specification du ViewModel
-        public new FirstViewModel ViewModel
+        public new MarkerListViewModel ViewModel
         {
-            get { return (FirstViewModel)base.ViewModel; }
+            get { return (MarkerListViewModel)base.ViewModel; }
             set { base.ViewModel = value; }
         }
         //Une fois le ViewModel chargé on genere la vue
@@ -51,6 +53,9 @@ namespace MvvmPocalim.Droid.View
             //Listener sur click d'un marker
             _gMap.MarkerClick += MapOnMarkerClick;
 
+            //Listener sur click de la map
+            _gMap.MapClick += MapOnMapClick;
+
             //Position de départ de la camera
             moveCameraStart();
             
@@ -68,6 +73,11 @@ namespace MvvmPocalim.Droid.View
             */
         }
 
+        private void MapOnMapClick(object sender, GoogleMap.MapClickEventArgs mapClickEventArgs)
+        {
+            Toast.MakeText(this, String.Format("You clicked on the MAP"), ToastLength.Short).Show();
+
+        }
 
         private void MapOnMarkerClick(object sender, GoogleMap.MarkerClickEventArgs markerClickEventArgs)
         {
@@ -75,7 +85,21 @@ namespace MvvmPocalim.Droid.View
             Marker marker = markerClickEventArgs.Marker;
 
             Toast.MakeText(this, String.Format("You clicked on {0}", marker.Title), ToastLength.Short).Show();
-            
+
+            //Creation et affichage d'une fenetre
+            //avec les infos du marker
+            createPopup();
+
+
+        }
+
+       
+        //Intent vers PopupView
+        public void createPopup()
+        {
+            var popup = new Intent(this, typeof(PopupView));
+            popup.PutExtra("FirstPage", "Data from First Page");
+            StartActivity(popup);
         }
 
         //Position de départ de la camera
@@ -104,13 +128,13 @@ namespace MvvmPocalim.Droid.View
                     option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));
                     option.SetTitle(marker.Nom);
                     if (marker.Type.Contains("Restaurant"))
-                        option.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRose));
+                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin_restaurant));
                     if (marker.Type.Contains("Proximité"))
-                        option.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueYellow));
+                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin_proximite));
                     if (marker.Type.Contains("Supermarché"))
-                        option.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueOrange));
+                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin_supermarche));
                     if (marker.Type.Contains("Transformation"))
-                        option.SetIcon(BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueCyan));
+                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin_transformation));
 
                     if (_gMap != null)
                         _marker = _gMap.AddMarker(option);

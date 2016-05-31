@@ -2,5 +2,5 @@
 <resources>
 	<string name="hello">Hello World, Click Me!</string>
   <string name="map_key">AIzaSyC9sWOMxsm01dEJQjY-tJjGyCZ8Vn8Xrmg</string>
-  <string name="app_name">MvvmPocalim.Droid</string>
+  <string name="app_name">POC MVVM ALIM</string>
 </resources>

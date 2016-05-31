@@ -32,7 +32,7 @@ namespace MvvmPocalim.Droid
             });
 
             startupWork.ContinueWith(t => {
-                StartActivity(new Intent(Application.Context, typeof(Map)));
+                StartActivity(new Intent(Application.Context, typeof(MapView)));
             }, TaskScheduler.FromCurrentSynchronizationContext());
 
             startupWork.Start();
