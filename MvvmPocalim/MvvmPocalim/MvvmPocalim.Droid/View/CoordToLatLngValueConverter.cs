@@ -13,6 +13,7 @@ using MvvmCross.Platform.Converters;
 using MvvmPocalim.ViewModels;
 using Android.Gms.Maps.Model;
 using System.Globalization;
+using MvvmPocalim.Services;
 
 namespace MvvmPocalim.Droid.View
 {

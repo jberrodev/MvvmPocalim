@@ -18,21 +18,22 @@ using MvvmCross.Droid.Support.V7.Fragging.Fragments;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platform.Converters;
 using System.Globalization;
+using MvvmPocalim.Services;
 
 namespace MvvmPocalim.Droid.View
 {
     /**Classe de création de la map
      * et ajout des markers**/
     [Activity(Label = "Map", Theme ="@style/MyTheme.NoTitle")]
-    public class MapView : MvxActivity,IOnMapReadyCallback
+    public class MyMapView : MvxActivity,IOnMapReadyCallback
     {
         private GoogleMap _gMap;
         private Marker _marker;
 
         //Specification du ViewModel
-        public new MarkerListViewModel ViewModel
+        public new FillingListOfMyPOIViewModel ViewModel
         {
-            get { return (MarkerListViewModel)base.ViewModel; }
+            get { return (FillingListOfMyPOIViewModel)base.ViewModel; }
             set { base.ViewModel = value; }
         }
         //Une fois le ViewModel chargé on genere la vue
@@ -62,15 +63,6 @@ namespace MvvmPocalim.Droid.View
             //parcours de la liste de markers du ViewModel
             //et ajout des markers à la map
             addMarkers();
-             
-            /*
-            //binding du marker au ModelView
-            var set = this.CreateBindingSet<Map, FirstViewModel>();
-            set.Bind(_marker)
-                .For(m => m.Position)
-                .To(vm => vm.Marker.Coord).WithConversion(new CoordToLatLngValueConverter(), null);
-            set.Apply();
-            */
         }
 
         private void MapOnMapClick(object sender, GoogleMap.MapClickEventArgs mapClickEventArgs)
@@ -88,19 +80,8 @@ namespace MvvmPocalim.Droid.View
 
             //Creation et affichage d'une fenetre
             //avec les infos du marker
-            createPopup();
 
-
-        }
-
-       
-        //Intent vers PopupView
-        public void createPopup()
-        {
-            var popup = new Intent(this, typeof(PopupView));
-            popup.PutExtra("FirstPage", "Data from First Page");
-            StartActivity(popup);
-        }
+        }            
 
         //Position de départ de la camera
         public void moveCameraStart()
@@ -122,7 +103,7 @@ namespace MvvmPocalim.Droid.View
         //et ajout des markers à la map
         public void addMarkers()
         {
-                foreach (Markers marker in ViewModel.MarkerList)
+                foreach (MyPOI marker in ViewModel.MarkerList)
                 {
                     var option = new MarkerOptions();
                     option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));

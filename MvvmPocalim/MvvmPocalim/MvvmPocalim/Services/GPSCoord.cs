@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvvmPocalim.ViewModels
+namespace MvvmPocalim.Services
 {
     public class GPSCoord : MvxViewModel
     {

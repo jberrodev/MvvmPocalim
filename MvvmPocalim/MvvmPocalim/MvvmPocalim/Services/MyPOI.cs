@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvvmPocalim.ViewModels
+namespace MvvmPocalim.Services
 {
     //Objet Markers qui sera lu par les couches natives
-   public class Markers : MvxViewModel
+   public class MyPOI : MvxViewModel
     {
         private GPSCoord _coord;
         private String _nom;
@@ -17,7 +17,7 @@ namespace MvvmPocalim.ViewModels
         private Decimal _note;
         private String _inspection;
 
-        public Markers()
+        public MyPOI()
         {
             _coord = Coord;
             _nom = Nom;

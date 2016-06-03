@@ -3,6 +3,7 @@ using Java.Util;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmCross.Plugins.Location;
+using MvvmPocalim.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -11,20 +12,20 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
+using System.Windows.Input;
 
 namespace MvvmPocalim.ViewModels
 {
-    public class MarkerListViewModel : MvxViewModel
+    public class FillingListOfMyPOIViewModel : MvxViewModel
     {
-        private List<Markers> _markerslist;
+        private List<MyPOI> _markerslist;
 
-        public List<Markers> MarkerList
+        public List<MyPOI> MarkerList
         {
             get { return _markerslist; }
             set { _markerslist = value; RaisePropertyChanged(() => MarkerList); }
         }
+
         string jsonString2 = @"
     {
         ""data"": [
@@ -70,8 +71,8 @@ namespace MvvmPocalim.ViewModels
 
         public override void Start()
         {
-            _markerslist= new List<Markers>();
-        
+            _markerslist= new List<MyPOI>();
+
             //On parcours le résultat en remplissant la liste
             //de Markers qui sera utilisée par les couches natives
             loadJson();
@@ -84,13 +85,13 @@ namespace MvvmPocalim.ViewModels
         public void loadJson()
         {
           
-                var des = (MarkersJSON)Newtonsoft.Json.JsonConvert.DeserializeObject(jsonString2, typeof(MarkersJSON));
+                var des = (POIFromJSON)Newtonsoft.Json.JsonConvert.DeserializeObject(jsonString2, typeof(POIFromJSON));
 
-                foreach (MarkerJSON markerJson in des.data)
+                foreach (POIJSON markerJson in des.data)
                 {
                     try
                     {
-                    var marker = new Markers()
+                    var marker = new MyPOI()
                     {
                         Coord = new GPSCoord() { Lat = Convert.ToDouble(markerJson.lattitude), Lng = Convert.ToDouble(markerJson.longitude) },
                         Nom = markerJson.nom,
@@ -111,22 +112,14 @@ namespace MvvmPocalim.ViewModels
 
                 }
             }
-        
-        /*
-        public IMvxCommand MoveCommand
+
+        public ICommand GoPopup
         {
             get
             {
-                return new MvxCommand(() =>
-                {
-                    Marker.Coord = new GPSCoord()
-                    {
-                        Lat = Marker.Coord.Lat + 0.1,
-                        Lng = Marker.Coord.Lng
-                    };
-                });
+                return new MvxCommand(() => ShowViewModel<PopupViewModel>());
             }
-        }    */
+        }
 
     }
 }

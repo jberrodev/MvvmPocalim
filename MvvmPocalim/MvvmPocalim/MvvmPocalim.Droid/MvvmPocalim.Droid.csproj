@@ -120,8 +120,8 @@
     <Compile Include="Setup.cs" />
     <Compile Include="Splash.cs" />
     <Compile Include="View\CoordToLatLngValueConverter.cs" />
-    <Compile Include="View\MapView.cs" />
-    <Compile Include="View\PopupView.cs" />
+    <Compile Include="View\MyMapView.cs" />
+    <Compile Include="View\MyPopupInfoView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

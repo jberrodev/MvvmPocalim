@@ -1933,9 +1933,6 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f0b003a
 			public const int parentPanel = 2131427386;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int popup_element = 2131427435;
-			
 			// aapt resource value: 0x7f0b0005
 			public const int progress_circular = 2131427333;
 			

@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MvvmPocalim.ViewModels
+namespace MvvmPocalim.Services
 {
     //Classe qui sert à désérialiser le fichier JSON
-    public class MarkersJSON : MvxViewModel
+    public class POIFromJSON : MvxViewModel
     {
-        public List<MarkerJSON> data { get; set; }
+        public List<POIJSON> data { get; set; }
     }
 
-    public class MarkerJSON
+    public class POIJSON
     {
         public string nom { get; set; }
         public string lattitude { get; set; }

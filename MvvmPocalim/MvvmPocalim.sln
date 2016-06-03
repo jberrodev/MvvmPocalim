@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmPocalim.Droid", "MvvmPocalim\MvvmPocalim.Droid\MvvmPocalim.Droid.csproj", "{93849148-8CAD-4196-A2C2-9E6BBA3B5B02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvMPocalim.Droid", "MvvmPocalim\MvvmPocalim.Droid\MvvMPocalim.Droid.csproj", "{93849148-8CAD-4196-A2C2-9E6BBA3B5B02}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmPocalim.iOS", "MvvmPocalim\MvvmPocalim.iOS\MvvmPocalim.iOS.csproj", "{6ECEB170-FC08-487F-AA01-9C45A4DFC07B}"
 EndProject
