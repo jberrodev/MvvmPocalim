@@ -19,6 +19,7 @@ using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platform.Converters;
 using System.Globalization;
 using MvvmPocalim.Services;
+using static Android.Gms.Maps.GoogleMap;
 
 namespace MvvmPocalim.Droid.View
 {
@@ -63,11 +64,12 @@ namespace MvvmPocalim.Droid.View
             //parcours de la liste de markers du ViewModel
             //et ajout des markers à la map
             addMarkers();
+            _gMap.SetInfoWindowAdapter(new CustomMarkerPopupAdapter(LayoutInflater));
         }
 
         private void MapOnMapClick(object sender, GoogleMap.MapClickEventArgs mapClickEventArgs)
         {
-            Toast.MakeText(this, String.Format("You clicked on the MAP"), ToastLength.Short).Show();
+           // Toast.MakeText(this, String.Format("You clicked on the MAP"), ToastLength.Short).Show();
 
         }
 
@@ -75,21 +77,27 @@ namespace MvvmPocalim.Droid.View
         {
             markerClickEventArgs.Handled = true;
             Marker marker = markerClickEventArgs.Marker;
+            
+            //zoom avec animation sur le marker cliqué
+            animateCameraOnMarker(marker);
+            
+            //affichage des infos
+            marker.ShowInfoWindow();
 
-            Toast.MakeText(this, String.Format("You clicked on {0}", marker.Title), ToastLength.Short).Show();
-
-            //Creation et affichage d'une fenetre
-            //avec les infos du marker
-            createPopup();
-
+            
         }
-        //Intent vers PopupView
-        public void createPopup()
+
+        //zoom avec animation sur le marker
+        //cliqué avec un décallage pour
+        //laisser de la place à la infowindow
+        public void animateCameraOnMarker(Marker marker)
         {
-            var popup = new Intent(this, typeof(PopupView));
-            popup.PutExtra("FirstPage", "Data from First Page");
-            StartActivity(popup);
+            double _latToZoom = marker.Position.Latitude + 0.005;
+            double _lngToZoom = marker.Position.Longitude;
+
+            _gMap.AnimateCamera(CameraUpdateFactory.NewLatLngZoom(new LatLng(_latToZoom,_lngToZoom), 15));
         }
+
         //Position de départ de la camera
         public void moveCameraStart()
         {
@@ -128,7 +136,7 @@ namespace MvvmPocalim.Droid.View
                         _marker = _gMap.AddMarker(option);
                 }
         }
-       
+
     }
 
 }

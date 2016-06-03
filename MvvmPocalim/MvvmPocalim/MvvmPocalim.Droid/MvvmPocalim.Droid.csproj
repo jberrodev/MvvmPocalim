@@ -120,8 +120,8 @@
     <Compile Include="Setup.cs" />
     <Compile Include="Splash.cs" />
     <Compile Include="View\CoordToLatLngValueConverter.cs" />
+    <Compile Include="View\CustomMarkerPopupAdapter.cs" />
     <Compile Include="View\MyMapView.cs" />
-    <Compile Include="View\MyPopupInfoView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -131,7 +131,7 @@
     <AndroidResource Include="Resources\values\styles.xml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\View_Popup.axml" />
+    <AndroidResource Include="Resources\layout\View_Info_Window.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\View_Map.axml" />
@@ -169,6 +169,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\pin_proximite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bubble_info.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
