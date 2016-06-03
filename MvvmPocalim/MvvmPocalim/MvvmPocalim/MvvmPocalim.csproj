@@ -34,7 +34,6 @@
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MyPOI.cs" />
-    <Compile Include="ViewModels\PopupViewModel.cs" />
     <Compile Include="ViewModels\FillingListOfMyPOIViewModel.cs" />
     <Compile Include="Services\GPSCoord.cs" />
     <Compile Include="Services\POIFromJSON.cs" />

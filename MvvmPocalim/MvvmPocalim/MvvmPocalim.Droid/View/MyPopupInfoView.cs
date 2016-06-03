@@ -15,20 +15,12 @@ using MvvmPocalim.ViewModels;
 namespace MvvmPocalim.Droid.View
 {
     [Activity(Theme = "@style/MyTheme.Popup")]
-    public class MyPopupInfoView : MvxActivity
+    public class PopupView : Activity
     {
-        //Specification du ViewModel
-        public new PopupViewModel ViewModel
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            get { return (PopupViewModel)base.ViewModel; }
-            set { base.ViewModel = value; }
-        }
-        //Une fois le ViewModel chargé on genere la vue
-        protected override void OnViewModelSet()
-        {
-            base.OnViewModelSet();
+            base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.View_Popup);
-
         }
     }
 }

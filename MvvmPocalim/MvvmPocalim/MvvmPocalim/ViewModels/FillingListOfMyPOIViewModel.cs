@@ -112,7 +112,7 @@ namespace MvvmPocalim.ViewModels
 
                 }
             }
-
+/*
         public ICommand GoPopup
         {
             get
@@ -120,7 +120,7 @@ namespace MvvmPocalim.ViewModels
                 return new MvxCommand(() => ShowViewModel<PopupViewModel>());
             }
         }
-
+        */
     }
 }
 

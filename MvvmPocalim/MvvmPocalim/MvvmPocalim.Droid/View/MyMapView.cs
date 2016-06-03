@@ -80,9 +80,16 @@ namespace MvvmPocalim.Droid.View
 
             //Creation et affichage d'une fenetre
             //avec les infos du marker
+            createPopup();
 
-        }            
-
+        }
+        //Intent vers PopupView
+        public void createPopup()
+        {
+            var popup = new Intent(this, typeof(PopupView));
+            popup.PutExtra("FirstPage", "Data from First Page");
+            StartActivity(popup);
+        }
         //Position de départ de la camera
         public void moveCameraStart()
         {
