@@ -77,14 +77,14 @@ namespace MvvmPocalim.Droid.View
         {
             markerClickEventArgs.Handled = true;
             Marker marker = markerClickEventArgs.Marker;
-            
-            //zoom avec animation sur le marker cliqué
+
+            //zoom avec animation sur le marker
+            //cliqué avec un décallage pour
+            //laisser de la place à la infowindow
             animateCameraOnMarker(marker);
             
             //affichage des infos
             marker.ShowInfoWindow();
-
-            
         }
 
         //zoom avec animation sur le marker

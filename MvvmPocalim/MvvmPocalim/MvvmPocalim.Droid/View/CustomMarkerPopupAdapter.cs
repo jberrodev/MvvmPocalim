@@ -11,11 +11,15 @@ using Android.Views;
 using Android.Widget;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using MvvmPocalim.Services;
+using MvvmCross.Droid.Views;
+using MvvmPocalim.ViewModels;
 
 namespace MvvmPocalim.Droid.View
 {
     public class CustomMarkerPopupAdapter : Java.Lang.Object, GoogleMap.IInfoWindowAdapter
     {
+
         private LayoutInflater _layoutInflater = null;
         
         public CustomMarkerPopupAdapter(LayoutInflater inflater)

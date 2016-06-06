@@ -71,7 +71,7 @@ namespace MvvmPocalim.ViewModels
 
         public override void Start()
         {
-            _markerslist= new List<MyPOI>();
+            _markerslist = new List<MyPOI>();
 
             //On parcours le résultat en remplissant la liste
             //de Markers qui sera utilisée par les couches natives
