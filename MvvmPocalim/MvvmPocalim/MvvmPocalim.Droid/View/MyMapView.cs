@@ -20,16 +20,22 @@ using MvvmCross.Platform.Converters;
 using System.Globalization;
 using MvvmPocalim.Services;
 using static Android.Gms.Maps.GoogleMap;
+using Android.Support.V4.Content;
+using Android;
+using Android.Content.PM;
+using Android.Locations;
+using Android.Util;
 
 namespace MvvmPocalim.Droid.View
 {
     /**Classe de création de la map
      * et ajout des markers**/
-    [Activity(Label = "Map", Theme ="@style/MyTheme.NoTitle")]
-    public class MyMapView : MvxActivity,IOnMapReadyCallback
+    [Activity(Label = "Map", Theme = "@style/MyTheme.NoTitle")]
+    public class MyMapView : MvxActivity, IOnMapReadyCallback, IOnMyLocationButtonClickListener
     {
         private GoogleMap _gMap;
         private Marker _marker;
+        LocationManager _locationManager;
 
         //Specification du ViewModel
         public new FillingListOfMyPOIViewModel ViewModel
@@ -47,11 +53,15 @@ namespace MvvmPocalim.Droid.View
                 FragmentManager.FindFragmentById<MapFragment>(Resource.Id.map).GetMapAsync(this);
 
         }
-        
+
         public void OnMapReady(GoogleMap googleMap)
         {
             _gMap = googleMap;
-            
+            _gMap.UiSettings.ZoomControlsEnabled = true;
+
+            //Verification des permissions  de localisation
+            checkLocationPermission();
+
             //Listener sur click d'un marker
             _gMap.MarkerClick += MapOnMarkerClick;
 
@@ -60,12 +70,63 @@ namespace MvvmPocalim.Droid.View
 
             //Position de départ de la camera
             moveCameraStart();
-            
+
             //parcours de la liste de markers du ViewModel
             //et ajout des markers à la map
             addMarkers();
             _gMap.SetInfoWindowAdapter(new CustomMarkerPopupAdapter(LayoutInflater));
         }
+
+        //Verification de l'autorisation de localisation
+        public void checkLocationPermission()
+        {
+            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation)
+                == (int)Permission.Granted)
+            {
+                //Affichage du Bouton de localisation google
+                _gMap.MyLocationEnabled = true;
+                _gMap.SetOnMyLocationButtonClickListener(this);
+            }
+            else
+            {
+                Toast.MakeText(this, "Location Permissions are required !", ToastLength.Short).Show();
+            }
+
+        }
+
+        //Listener du bouton de localisation google
+        bool IOnMyLocationButtonClickListener.OnMyLocationButtonClick()
+        {
+            bool _isGpsEnable = false;
+            _isGpsEnable=checkGPS();
+
+            if (_isGpsEnable)
+            {
+                //le gps est activé
+                //return false zoom sur la localisation
+                return false;
+            }
+            else
+            {
+                Toast.MakeText(this, String.Format("Veuillez Activer le GPS"), ToastLength.Short).Show();
+                return true;
+            }
+        }
+
+        //vérification de l'activation du GPS
+        public bool checkGPS()
+        {
+            _locationManager = GetSystemService(Context.LocationService) as LocationManager;
+
+            string provider = LocationManager.GpsProvider;
+
+            if (_locationManager.IsProviderEnabled(provider))
+            {
+                return true;
+            }
+            return false;
+        }
+      
 
         private void MapOnMapClick(object sender, GoogleMap.MapClickEventArgs mapClickEventArgs)
         {
@@ -81,7 +142,7 @@ namespace MvvmPocalim.Droid.View
             //zoom avec animation sur le marker
             //cliqué avec un décallage pour
             //laisser de la place à la infowindow
-            animateCameraOnMarker(marker);
+             animateCameraOnMarker(marker);
             
             //affichage des infos
             marker.ShowInfoWindow();
@@ -92,10 +153,10 @@ namespace MvvmPocalim.Droid.View
         //laisser de la place à la infowindow
         public void animateCameraOnMarker(Marker marker)
         {
-            double _latToZoom = marker.Position.Latitude + 0.005;
+            double _latToZoom = marker.Position.Latitude;
             double _lngToZoom = marker.Position.Longitude;
 
-            _gMap.AnimateCamera(CameraUpdateFactory.NewLatLngZoom(new LatLng(_latToZoom,_lngToZoom), 15));
+            _gMap.AnimateCamera(CameraUpdateFactory.NewLatLngZoom(new LatLng(_latToZoom,_lngToZoom), _gMap.CameraPosition.Zoom));
         }
 
         //Position de départ de la camera
@@ -137,6 +198,7 @@ namespace MvvmPocalim.Droid.View
                 }
         }
 
+       
     }
 
 }

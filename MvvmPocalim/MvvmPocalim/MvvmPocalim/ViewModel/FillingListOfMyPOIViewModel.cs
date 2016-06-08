@@ -1,4 +1,5 @@
-﻿using Java.IO;
+﻿using Android.Content.PM;
+using Java.IO;
 using Java.Util;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
