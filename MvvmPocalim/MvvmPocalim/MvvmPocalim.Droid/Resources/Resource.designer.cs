@@ -1750,6 +1750,12 @@ namespace MvvmPocalim.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0b006e
+			public const int FilterOkBtn = 2131427438;
+			
+			// aapt resource value: 0x7f0b0071
+			public const int FiltreBtn = 2131427441;
+			
 			// aapt resource value: 0x7f0b0009
 			public const int MvvmCrossTagId = 2131427337;
 			
@@ -1846,8 +1852,8 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f0b0043
 			public const int customPanel = 2131427395;
 			
-			// aapt resource value: 0x7f0b006a
-			public const int custom_marker_popup_title = 2131427434;
+			// aapt resource value: 0x7f0b006f
+			public const int custom_marker_popup_title = 2131427439;
 			
 			// aapt resource value: 0x7f0b0016
 			public const int dark = 2131427350;
@@ -1875,6 +1881,18 @@ namespace MvvmPocalim.Droid
 			
 			// aapt resource value: 0x7f0b0045
 			public const int expanded_menu = 2131427397;
+			
+			// aapt resource value: 0x7f0b006a
+			public const int filter1 = 2131427434;
+			
+			// aapt resource value: 0x7f0b006b
+			public const int filter2 = 2131427435;
+			
+			// aapt resource value: 0x7f0b006c
+			public const int filter3 = 2131427436;
+			
+			// aapt resource value: 0x7f0b006d
+			public const int filter4 = 2131427437;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int home = 2131427332;
@@ -1915,8 +1933,8 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f0b0035
 			public const int list_item = 2131427381;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int map = 2131427435;
+			// aapt resource value: 0x7f0b0070
+			public const int map = 2131427440;
 			
 			// aapt resource value: 0x7f0b0060
 			public const int media_actions = 2131427424;
@@ -2230,10 +2248,13 @@ namespace MvvmPocalim.Droid
 			public const int support_simple_spinner_dropdown_item = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int View_Info_Window = 2130903077;
+			public const int View_Filtre = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int View_Map = 2130903078;
+			public const int View_Info_Window = 2130903078;
+			
+			// aapt resource value: 0x7f030027
+			public const int View_Map = 2130903079;
 			
 			static Layout()
 			{
@@ -2305,14 +2326,17 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f050031
 			public const int abc_toolbar_collapse_description = 2131034161;
 			
-			// aapt resource value: 0x7f050035
-			public const int app_name = 2131034165;
+			// aapt resource value: 0x7f050034
+			public const int app_name = 2131034164;
 			
 			// aapt resource value: 0x7f050001
 			public const int auth_google_play_services_client_facebook_display_name = 2131034113;
 			
 			// aapt resource value: 0x7f050000
 			public const int auth_google_play_services_client_google_display_name = 2131034112;
+			
+			// aapt resource value: 0x7f05003a
+			public const int button_ok = 2131034170;
 			
 			// aapt resource value: 0x7f050018
 			public const int common_google_play_services_api_unavailable_text = 2131034136;
@@ -2401,11 +2425,23 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f05001e
 			public const int common_signin_button_text_long = 2131034142;
 			
-			// aapt resource value: 0x7f050033
-			public const int hello = 2131034163;
+			// aapt resource value: 0x7f050036
+			public const int filter_1 = 2131034166;
 			
-			// aapt resource value: 0x7f050034
-			public const int map_key = 2131034164;
+			// aapt resource value: 0x7f050037
+			public const int filter_2 = 2131034167;
+			
+			// aapt resource value: 0x7f050038
+			public const int filter_3 = 2131034168;
+			
+			// aapt resource value: 0x7f050039
+			public const int filter_4 = 2131034169;
+			
+			// aapt resource value: 0x7f050035
+			public const int filter_button_text = 2131034165;
+			
+			// aapt resource value: 0x7f050033
+			public const int map_key = 2131034163;
 			
 			// aapt resource value: 0x7f050032
 			public const int status_bar_notification_info_overflow = 2131034162;

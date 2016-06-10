@@ -1,33 +1,22 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using MvvmCross.Droid.Views;
 using MvvmPocalim.ViewModels;
-using MvvmCross.Droid.Support.V7.Fragging;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
-using MvvmCross.Droid.Support.V7.Fragging.Fragments;
-using MvvmCross.Binding.BindingContext;
-using MvvmCross.Platform.Converters;
-using System.Globalization;
 using MvvmPocalim.Services;
 using static Android.Gms.Maps.GoogleMap;
 using Android.Support.V4.Content;
 using Android;
 using Android.Content.PM;
 using Android.Locations;
-using Android.Util;
 
 namespace MvvmPocalim.Droid.View
 {
+
     /**Classe de création de la map
      * et ajout des markers**/
     [Activity(Label = "Map", Theme = "@style/MyTheme.NoTitle")]
@@ -36,6 +25,7 @@ namespace MvvmPocalim.Droid.View
         private GoogleMap _gMap;
         private Marker _marker;
         LocationManager _locationManager;
+
 
         //Specification du ViewModel
         public new FillingListOfMyPOIViewModel ViewModel

@@ -32,9 +32,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Services\IMyFiler.cs" />
+    <Compile Include="Services\MyFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\MyPOI.cs" />
-    <Compile Include="ViewModel\SecondViewModel.cs" />
+    <Compile Include="ViewModel\FilterViewModel.cs" />
     <Compile Include="ViewModel\FillingListOfMyPOIViewModel.cs" />
     <Compile Include="Services\GPSCoord.cs" />
     <Compile Include="Services\POIFromJSON.cs" />

@@ -1,5 +1,6 @@
 ﻿using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
+using MvvmPocalim.Services;
 using MvvmPocalim.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace MvvmPocalim
     {
         public App()
         {
+            Mvx.RegisterType<IMyFilter, MyFilter>();
             Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<FillingListOfMyPOIViewModel>());
         }
     }
