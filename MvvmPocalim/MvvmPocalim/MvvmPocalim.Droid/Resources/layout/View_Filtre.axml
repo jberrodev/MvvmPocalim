@@ -25,6 +25,7 @@
     <CheckBox
         android:text="@string/filter_4"
         android:layout_width="match_parent"
+        android:button="@drawable/checkbox_selector"
         android:layout_height="wrap_content"
         android:id="@+id/filter4"
         local:MvxBind="Checked FilterSupermarcheIsChecked" />
@@ -36,5 +37,6 @@
         android:text="@string/button_ok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/FilterOkBtn" />
+        android:id="@+id/FilterOkBtn"
+        local:MvxBind="Click GoBack" />
 </LinearLayout>

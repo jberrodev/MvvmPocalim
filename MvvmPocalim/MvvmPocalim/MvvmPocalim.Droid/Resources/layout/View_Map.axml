@@ -26,5 +26,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/FiltreBtn"
         android:layout_gravity="center_horizontal"
-        local:MvxBind="Click GoPopup" />
+        local:MvxBind="Click GoPopupFiltre" />
 </FrameLayout>

@@ -1,6 +1,7 @@
 ﻿using MvvmCross.Core.ViewModels;
 using MvvmPocalim.Services;
 using System;
+using System.Windows.Input;
 
 namespace MvvmPocalim.ViewModels
 {
@@ -60,7 +61,15 @@ namespace MvvmPocalim.ViewModels
         {
             Test = _myFilter.Reload(FilterRestaurantIsChecked, FilterProximiteIsChecked, FilterTransformationIsChecked, FilterSupermarcheIsChecked);
         }
-        
+
+        public ICommand GoBack
+        {
+            get
+            {
+                return new MvxCommand(() => ShowViewModel<FillingListOfMyPOIViewModel>());
+            }
+        }
+
     }
 }
 

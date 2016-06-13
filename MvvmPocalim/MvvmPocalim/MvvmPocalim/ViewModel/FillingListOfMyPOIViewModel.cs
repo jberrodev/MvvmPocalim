@@ -114,11 +114,16 @@ namespace MvvmPocalim.ViewModels
                 }
             }
 
-        public ICommand GoPopup
+        public ICommand GoPopupFiltre
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<FilterViewModel>());
+                return new MvxCommand(() => ShowViewModel<FilterViewModel>(
+                    new
+                    {
+                        Frist = "hello"
+                    }
+                    ));
             }
         }
         
