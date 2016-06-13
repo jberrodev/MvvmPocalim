@@ -1756,8 +1756,11 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f0b006e
 			public const int FilterOkBtn = 2131427438;
 			
-			// aapt resource value: 0x7f0b0071
-			public const int FiltreBtn = 2131427441;
+			// aapt resource value: 0x7f0b0072
+			public const int FiltreBtn = 2131427442;
+			
+			// aapt resource value: 0x7f0b006f
+			public const int FiltreCloseBtn = 2131427439;
 			
 			// aapt resource value: 0x7f0b0009
 			public const int MvvmCrossTagId = 2131427337;
@@ -1855,8 +1858,8 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f0b0043
 			public const int customPanel = 2131427395;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int custom_marker_popup_title = 2131427439;
+			// aapt resource value: 0x7f0b0070
+			public const int custom_marker_popup_title = 2131427440;
 			
 			// aapt resource value: 0x7f0b0016
 			public const int dark = 2131427350;
@@ -1936,8 +1939,8 @@ namespace MvvmPocalim.Droid
 			// aapt resource value: 0x7f0b0035
 			public const int list_item = 2131427381;
 			
-			// aapt resource value: 0x7f0b0070
-			public const int map = 2131427440;
+			// aapt resource value: 0x7f0b0071
+			public const int map = 2131427441;
 			
 			// aapt resource value: 0x7f0b0060
 			public const int media_actions = 2131427424;
@@ -2067,6 +2070,9 @@ namespace MvvmPocalim.Droid
 			
 			// aapt resource value: 0x7f0b0041
 			public const int textSpacerNoButtons = 2131427393;
+			
+			// aapt resource value: 0x7f0b0073
+			public const int textView1 = 2131427443;
 			
 			// aapt resource value: 0x7f0b0063
 			public const int time = 2131427427;
@@ -2337,6 +2343,9 @@ namespace MvvmPocalim.Droid
 			
 			// aapt resource value: 0x7f050000
 			public const int auth_google_play_services_client_google_display_name = 2131034112;
+			
+			// aapt resource value: 0x7f05003b
+			public const int button_cancel = 2131034171;
 			
 			// aapt resource value: 0x7f05003a
 			public const int button_ok = 2131034170;

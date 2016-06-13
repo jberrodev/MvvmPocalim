@@ -8,4 +8,6 @@
   <string name="filter_3">Transformation</string>
   <string name="filter_4">Supermarche</string>
   <string name="button_ok">OK</string>
+  <string name="button_cancel">ANNULER</string>
+
 </resources>

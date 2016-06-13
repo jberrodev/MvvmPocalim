@@ -73,8 +73,8 @@ namespace MvvmPocalim.ViewModels
         public override void Start()
         {
             _markerslist = new List<MyPOI>();
-
             //On parcours le résultat en remplissant la liste
+
             //de Markers qui sera utilisée par les couches natives
             loadJson();
 
@@ -118,12 +118,7 @@ namespace MvvmPocalim.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<FilterViewModel>(
-                    new
-                    {
-                        Frist = "hello"
-                    }
-                    ));
+                return new MvxCommand(() => ShowViewModel<FilterViewModel>());
             }
         }
         

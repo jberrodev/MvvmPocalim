@@ -9,20 +9,20 @@ namespace MvvmPocalim.Services
 {
     public class MyFilter : IMyFilter
     {
-        public string Reload(bool filtreRestaurantIsChecked, bool filtreProximiteIsChecked, bool filtreTransformationIsChecked, bool filtreSupermarcheIsChecked)
+        public List<string> Reload(bool filtreRestaurantIsChecked, bool filtreProximiteIsChecked, bool filtreTransformationIsChecked, bool filtreSupermarcheIsChecked)
         {
          
-            List<bool> list = new List<bool>();
+            List<string> list = new List<string>();
             if (filtreRestaurantIsChecked)
-                list.Add(filtreRestaurantIsChecked);
+                list.Add("Restaurant");
             if (filtreProximiteIsChecked)
-                list.Add(filtreProximiteIsChecked);
+                list.Add("Proximité");
             if (filtreTransformationIsChecked)
-                list.Add(filtreTransformationIsChecked);
+                list.Add("Transformation");
             if (filtreSupermarcheIsChecked)
-                list.Add(filtreSupermarcheIsChecked);
+                list.Add("Supermarché");
 
-            return list.Count.ToString();
+            return list;
 
         }
     }

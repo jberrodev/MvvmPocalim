@@ -38,5 +38,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/FilterOkBtn"
+        local:MvxBind="Click SendFiltre" />
+    <Button
+        android:text="@string/button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/FiltreCloseBtn"
         local:MvxBind="Click GoBack" />
 </LinearLayout>

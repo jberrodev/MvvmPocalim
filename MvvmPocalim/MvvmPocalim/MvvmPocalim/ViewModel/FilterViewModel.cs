@@ -1,6 +1,7 @@
 ﻿using MvvmCross.Core.ViewModels;
 using MvvmPocalim.Services;
 using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace MvvmPocalim.ViewModels
@@ -18,12 +19,12 @@ namespace MvvmPocalim.ViewModels
             base.Start();
         }
 
-        private string _test;
+        private List<string> _paramFiltre;
 
-        public String Test
+        public List<string> ParameterFiltre
         {
-            get { return _test; }
-            set { _test = value; RaisePropertyChanged(() => Test); }
+            get { return _paramFiltre; }
+            set { _paramFiltre = value; RaisePropertyChanged(() => ParameterFiltre); }
         }
 
         private bool _filterRestaurantIsChecked;
@@ -59,18 +60,30 @@ namespace MvvmPocalim.ViewModels
         //en fonction des checkboxes
         private void Recalculate()
         {
-            Test = _myFilter.Reload(FilterRestaurantIsChecked, FilterProximiteIsChecked, FilterTransformationIsChecked, FilterSupermarcheIsChecked);
+            ParameterFiltre = _myFilter.Reload(FilterRestaurantIsChecked, FilterProximiteIsChecked, FilterTransformationIsChecked, FilterSupermarcheIsChecked);
+        }
+
+
+        public ICommand SendFiltre
+        {
+            get
+            {
+                return new MvxCommand(() => Close(this));
+            }
+
         }
 
         public ICommand GoBack
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<FillingListOfMyPOIViewModel>());
+                return new MvxCommand(() => Close(this));
             }
+
         }
 
     }
+
 }
 
 

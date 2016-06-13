@@ -8,6 +8,6 @@ namespace MvvmPocalim.Services
 {
     public interface IMyFilter
     {
-        string Reload(bool filtreRestaurantIsChecked, bool filtreProximiteIsChecked, bool filtreTransformationIsChecked, bool filtreSupermarcheIsChecked);
+        List<string> Reload(bool filtreRestaurantIsChecked, bool filtreProximiteIsChecked, bool filtreTransformationIsChecked, bool filtreSupermarcheIsChecked);
     }
 }
